@@ -3,11 +3,19 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
 interface LoaderProps {
-  show: boolean;
+  show?: boolean;
+  fullScreen?: boolean;
   handleClose?: React.MouseEventHandler<HTMLElement>;
 }
 
-const Loader = ({ show, handleClose }: LoaderProps) => {
+const Loader = ({
+  show = true,
+  fullScreen = false,
+  handleClose,
+}: LoaderProps) => {
+  if (!fullScreen) {
+    return show ? <CircularProgress color="inherit" /> : <></>;
+  }
   return (
     <Backdrop
       sx={{ color: "blue", zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -18,5 +26,4 @@ const Loader = ({ show, handleClose }: LoaderProps) => {
     </Backdrop>
   );
 };
-
 export default Loader;

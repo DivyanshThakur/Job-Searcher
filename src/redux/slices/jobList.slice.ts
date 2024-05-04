@@ -19,7 +19,13 @@ const initialState: InitialStateType = {
   jobs: [],
   totalJobs: 0,
   page: 1,
-  filter: {},
+  filter: {
+    roles: [],
+    minExperience: null,
+    companyName: null,
+    location: [],
+    minBasePay: null
+  },
 };
 
 const jobListSlice = createSlice({

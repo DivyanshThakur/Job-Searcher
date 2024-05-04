@@ -12,3 +12,8 @@ export interface IJob {
   companyName: string;
   logoUrl: string;
 }
+
+export interface IOption {
+  label: string;
+  value: string;
+}

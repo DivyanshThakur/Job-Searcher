@@ -1,19 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
-import { persistStore } from "redux-persist";
-// import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import jobListReducer from "./slices/jobList.slice";
-
-// const rootReducer = combineReducers({
-//   jobList: jobListReducer,
-// });
-
-// const persistConfig = {
-//   key: "job-searcher-root",
-//   storage,
-// };
-
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: {
@@ -37,5 +24,3 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export default store;
-
-export const persistor = persistStore(store);

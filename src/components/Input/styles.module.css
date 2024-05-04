@@ -1,0 +1,14 @@
+
+.label {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 6px 0 0 0;
+}
+
+.input > div {
+    height: 36px !important;
+}
+
+.input > div > input {
+    padding: 6px 16px;
+}

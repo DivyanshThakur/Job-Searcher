@@ -25,10 +25,10 @@ const JobCard = ({ data }: JobCardProps) => {
     let estimatedSalary = "Estimated Salary: ";
     if (data.minJdSalary || data.maxJdSalary) {
       if (data.minJdSalary && data.maxJdSalary)
-        estimatedSalary += `$${data.minJdSalary} - $${data.maxJdSalary} TPA`;
+        estimatedSalary += `$${data.minJdSalary} - ${data.maxJdSalary} TPA`;
       else if (data.minJdSalary)
         estimatedSalary += `Atleast $${data.minJdSalary} TPA`;
-      else estimatedSalary += `$0 - $${data.maxJdSalary} TPA`;
+      else estimatedSalary += `$0 - ${data.maxJdSalary} TPA`;
     } else {
       estimatedSalary += "Not disclosed";
     }

@@ -1,13 +1,12 @@
-import React from "react";
 import { Box } from "@mui/material";
-import styles from "./JobCard.module.css";
-import Loader from "./Loader";
+import { IJob } from "../types/common.type";
 
-const JobCard = () => {
-  return (
-    <Box>
-    </Box>
-  );
+interface JobCardProps {
+  data: IJob;
+}
+
+const JobCard = ({ data }: JobCardProps) => {
+  return <Box>{data.companyName}</Box>;
 };
 
 export default JobCard;

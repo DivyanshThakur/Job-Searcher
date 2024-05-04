@@ -1,12 +1,17 @@
-import React from "react";
 import { Container } from "@mui/material";
-import JobCard from "../components/JobCard";
+import useGetJobListInfiniteQuery from "../hooks/useGetJobListInfiniteQuery";
+import JobList from "../components/JobList";
+import JobFilter from "../components/JobFilter";
+import Loader from "../components/Loader";
 
 const Homepage = () => {
+  const { isLoading, data } = useGetJobListInfiniteQuery();
+
   return (
-    <Container component="main" style={{ background: "blue" }}>
-      Homepage
-      <JobCard />
+    <Container component="main">
+      <JobFilter />
+      <JobList items={data} />
+      <Loader show={isLoading} />
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { IJob } from "../types/common.type";
+import { IJob } from "../../types/common.type";
 
 interface JobCardProps {
   data: IJob;

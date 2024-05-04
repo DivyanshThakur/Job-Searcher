@@ -1,4 +1,4 @@
-export interface IJobList {
+export interface IJob {
   jdUid: string;
   jdLink: string;
   jobDetailsFromCompany: string;

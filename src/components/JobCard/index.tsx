@@ -8,12 +8,15 @@ import {
 } from "@mui/material";
 import { IJob } from "../../types/common.type";
 import styles from "./styles.module.css";
+import { useState } from "react";
 
 interface JobCardProps {
   data: IJob;
 }
 
 const JobCard = ({ data }: JobCardProps) => {
+  const [showMore, setShowMore] = useState(false);
+
   const handleCompanyClick = () => {
     window.open(data.jdLink);
   };
@@ -30,6 +33,10 @@ const JobCard = ({ data }: JobCardProps) => {
       estimatedSalary += "Not disclosed";
     }
     return estimatedSalary;
+  };
+
+  const handleViewMoreClick = () => {
+    setShowMore((prev) => !prev);
   };
 
   return (
@@ -59,7 +66,13 @@ const JobCard = ({ data }: JobCardProps) => {
         <Typography className={styles.cardSalary}>
           {getEstimatedSalaryText()}
         </Typography>
-        <Box className={styles.companyInfoContainer}>
+        <Box
+          className={
+            showMore
+              ? styles.companyInfoContainerViewMore
+              : styles.companyInfoContainer
+          }
+        >
           <Typography className={styles.aboutCompany}>
             About Company:
           </Typography>
@@ -70,9 +83,11 @@ const JobCard = ({ data }: JobCardProps) => {
             <Typography>{data.jobDetailsFromCompany}</Typography>
           </Box>
         </Box>
-        <Box className={styles.viewJobLink}>
-          <Typography component="a" href={data.jdLink} target="_blank">
-            View Job
+        <Box
+          className={showMore ? styles.viewJobLinkViewMore : styles.viewJobLink}
+        >
+          <Typography onClick={handleViewMoreClick}>
+            View {showMore ? "Less" : "More"}
           </Typography>
         </Box>
         <Box className={styles.minExpText}>
@@ -82,7 +97,9 @@ const JobCard = ({ data }: JobCardProps) => {
       </CardContent>
       <Box className={styles.cardFooter}>
         <Box className={styles.btnContainer}>
-          <Button className={styles.applyBtn}>⚡ Easy Apply</Button>
+          <Button className={styles.applyBtn} onClick={handleCompanyClick}>
+            ⚡ Easy Apply
+          </Button>
         </Box>
       </Box>
     </Card>

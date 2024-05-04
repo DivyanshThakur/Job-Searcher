@@ -4,7 +4,11 @@
     justify-content: space-between !important;
     align-items: center;
 
-    height: 100% !important;
+    /*  Uncommenting this height will make
+        job card of same height even if View more is clicked 
+    */
+    /* height: 100% !important; */
+    
     position: relative !important;
     border-radius: 20px !important;
     padding: 5px !important;
@@ -58,7 +62,7 @@
 }
 
 .companyInfoContainer {
-    height: 250px;
+    height: 200px;
     overflow: hidden;
     mask-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgba(255, 255, 255, 0));
 }
@@ -79,13 +83,23 @@
     top: -20px;
 }
 
-.viewJobLink > a {
+.viewJobLinkViewMore {
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    /* top: -20px;  */
+}
+
+.viewJobLink, .viewJobLinkViewMore > p {
     cursor: pointer;
     color: #4943da;
     text-decoration: none;
     font-size: 14px !important;
     font-weight: 400 !important;
 }
+
+
 
 .minExpText > h3 {
     margin-top: 10px;

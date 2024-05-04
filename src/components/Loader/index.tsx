@@ -1,6 +1,7 @@
 import React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Box } from "@mui/material";
 
 interface LoaderProps {
   show?: boolean;
@@ -14,7 +15,18 @@ const Loader = ({
   handleClose,
 }: LoaderProps) => {
   if (!fullScreen) {
-    return show ? <CircularProgress color="inherit" /> : <></>;
+    return show ? (
+      <Box
+        display="flex"
+        justifyContent="center"
+        marginTop={10}
+        marginBottom={10}
+      >
+        <CircularProgress color="primary" />
+      </Box>
+    ) : (
+      <></>
+    );
   }
   return (
     <Backdrop

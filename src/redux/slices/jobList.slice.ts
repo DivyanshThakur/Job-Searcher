@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IJob } from "../../types/common.type";
+import { IFilter, IJob } from "../../types/common.type";
 
 interface InitialStateType {
   jobs: IJob[];
   totalJobs: number;
   page: number;
-  filter: {};
+  filter: IFilter;
 }
 
 interface ISetJobList {
@@ -15,6 +15,10 @@ interface ISetJobList {
   };
 }
 
+interface ISetFilter {
+  payload: Partial<IFilter>;
+}
+
 const initialState: InitialStateType = {
   jobs: [],
   totalJobs: 0,
@@ -22,9 +26,10 @@ const initialState: InitialStateType = {
   filter: {
     roles: [],
     minExperience: null,
-    companyName: null,
-    location: [],
-    minBasePay: null
+    companyName: "",
+    locations: [],
+    remote: null,
+    minBasePay: null,
   },
 };
 
@@ -43,6 +48,24 @@ const jobListSlice = createSlice({
     incrementPage: (state) => {
       state.page++;
     },
+    setFilter: (state, action: ISetFilter) => {
+      const {
+        companyName,
+        locations,
+        minBasePay,
+        minExperience,
+        remote,
+        roles,
+      } = action.payload;
+
+      if (companyName !== undefined) state.filter.companyName = companyName;
+      if (minBasePay !== undefined) state.filter.minBasePay = minBasePay;
+      if (minExperience !== undefined)
+        state.filter.minExperience = minExperience;
+      if (locations !== undefined) state.filter.locations = locations;
+      if (roles !== undefined) state.filter.roles = roles;
+      if (remote !== undefined) state.filter.remote = remote;
+    },
     resetJobList: (state) => {
       state.jobs = [];
       state.page = 1;
@@ -50,6 +73,11 @@ const jobListSlice = createSlice({
   },
 });
 
-export const { setJobList, appendJobList, incrementPage, resetJobList } =
-  jobListSlice.actions;
+export const {
+  setJobList,
+  appendJobList,
+  incrementPage,
+  setFilter,
+  resetJobList,
+} = jobListSlice.actions;
 export default jobListSlice.reducer;

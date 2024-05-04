@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
 import ReactSelect, {
   ActionMeta,
   GroupBase,
@@ -14,28 +13,33 @@ interface SelectProps {
   label?: string;
   name?: string;
   options?: OptionsOrGroups<IOption, GroupBase<IOption>>;
+  value?: any;
   onChange?: (
     newValue: MultiValue<any> | any,
     actionMeta: ActionMeta<any>
   ) => void;
 }
 
-const Select = ({ label, name, isMulti = false, options }: SelectProps) => {
-  const [selectedOption, setSelectedOption] = useState<any>(
-    isMulti ? [] : null
-  );
-
+const Select = ({
+  label,
+  name,
+  isMulti = false,
+  value,
+  onChange,
+  options,
+}: SelectProps) => {
   return (
     <Box>
-      {(isMulti ? selectedOption?.length > 0 : selectedOption) && (
+      {(isMulti ? value?.length > 0 : value) && (
         <p className={styles.label}>{label}</p>
       )}
       <ReactSelect
         isMulti={isMulti}
         name={name}
         placeholder={label}
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
+        defaultValue={value}
+        value={value}
+        onChange={onChange}
         options={options}
         isClearable
         isSearchable

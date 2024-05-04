@@ -15,5 +15,14 @@ export interface IJob {
 
 export interface IOption {
   label: string;
-  value: string;
+  value: string | number;
+}
+
+export interface IFilter {
+  roles: IOption[];
+  locations: IOption[];
+  remote: IOption | null;
+  minExperience: IOption | null;
+  minBasePay: IOption | null;
+  companyName: string;
 }

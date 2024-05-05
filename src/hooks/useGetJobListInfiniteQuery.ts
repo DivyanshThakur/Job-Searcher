@@ -7,6 +7,11 @@ import {
   setLoading,
 } from "../redux/slices/jobList.slice";
 
+
+/**
+ ** useGetJobListInfiniteQuery
+ ** Custom Hook which calls weekday jobs api with infinite query feature
+ */
 const useGetJobListInfiniteQuery = () => {
   const { jobs, isLoading, page } = useAppSelector((state) => state.jobList);
   const dispatch = useAppDispatch();

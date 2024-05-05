@@ -2,6 +2,9 @@ import { createSelector } from "reselect";
 import { RootState } from "./store";
 import { IFilter, IJob } from "../types/common.type";
 
+/**
+ ** All filters are implemented below
+ */
 const filterNullValues = (item: IJob) =>
   item.minExp !== null &&
   item.maxExp !== null &&
@@ -27,6 +30,10 @@ const filterByMinExperience = (item: IJob, filter: IFilter) =>
 const filterByMinBasePay = (item: IJob, filter: IFilter) =>
   !filter.minBasePay || item.minJdSalary >= +filter.minBasePay.value;
 
+/**
+ ** getJobSelector is using reselect library to filter the jobs
+ ** based on the selected filters and cache it to optimize re-rendering
+ */
 export const getJobsSelector = createSelector(
   [(state: RootState) => state.jobList],
   (jobList) => {

@@ -1,5 +1,9 @@
 import { IOption } from "./types/common.type";
 
+/**
+ * These constants are used in filter section
+ */
+
 const roles: IOption[] = [
   {
     label: "Frontend",

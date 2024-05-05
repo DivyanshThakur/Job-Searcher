@@ -23,4 +23,4 @@ const Input = ({ label, placeholder, value, onChange }: InputProps) => {
   );
 };
 
-export default Input;
+export default React.memo(Input);

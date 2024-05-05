@@ -1,13 +1,15 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { appendJobList, incrementPage } from "../redux/slices/jobList.slice";
+import {
+  appendJobList,
+  incrementPage,
+  setLoading,
+} from "../redux/slices/jobList.slice";
 
 const useGetJobListInfiniteQuery = () => {
-  const { jobs, page } = useAppSelector((state) => state.jobList);
+  const { jobs, isLoading, page } = useAppSelector((state) => state.jobList);
   const dispatch = useAppDispatch();
-
-  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = useCallback(async () => {
     if (isLoading) return;
@@ -17,7 +19,7 @@ const useGetJobListInfiniteQuery = () => {
       offset: (page - 1) * 10,
     };
 
-    setIsLoading(true);
+    dispatch(setLoading(true));
 
     try {
       const res = await axios.post(
@@ -29,7 +31,7 @@ const useGetJobListInfiniteQuery = () => {
     } catch (err: any) {
       console.log("Error", err);
     }
-    setIsLoading(false);
+    dispatch(setLoading(false));
   }, [dispatch, isLoading, page]);
 
   /**

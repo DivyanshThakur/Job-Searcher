@@ -3,6 +3,7 @@ import { IFilter, IJob } from "../../types/common.type";
 
 interface InitialStateType {
   jobs: IJob[];
+  isLoading: boolean;
   totalJobs: number;
   page: number;
   filter: IFilter;
@@ -19,8 +20,13 @@ interface ISetFilter {
   payload: Partial<IFilter>;
 }
 
+interface ISetLoading {
+  payload: boolean;
+}
+
 const initialState: InitialStateType = {
   jobs: [],
+  isLoading: false,
   totalJobs: 0,
   page: 1,
   filter: {
@@ -44,6 +50,9 @@ const jobListSlice = createSlice({
       state.jobs.push(...action.payload.jdList);
       state.totalJobs = action.payload.totalCount;
     },
+    setLoading: (state, action: ISetLoading) => {
+      state.isLoading = action.payload;
+    },
     incrementPage: (state) => {
       state.page++;
     },
@@ -61,6 +70,7 @@ const jobListSlice = createSlice({
     resetJobList: (state) => {
       state.jobs = [];
       state.totalJobs = 0;
+      state.isLoading = false;
       state.page = 1;
       state.filter = {
         roles: [],
@@ -76,6 +86,7 @@ const jobListSlice = createSlice({
 export const {
   setJobList,
   appendJobList,
+  setLoading,
   incrementPage,
   setFilter,
   resetJobList,

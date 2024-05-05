@@ -9,12 +9,12 @@ const Homepage = () => {
    * useGetJobListInfiniteQuery() is a custom hook which returns the jobs fetched
    * from Weekday API.
    */
-  const { isLoading, data } = useGetJobListInfiniteQuery();
+  const { isLoading } = useGetJobListInfiniteQuery();
 
   return (
     <Container component="main">
       <JobFilter />
-      <JobList isLoading={isLoading} items={data} />
+      <JobList />
       <Loader show={isLoading} />
     </Container>
   );

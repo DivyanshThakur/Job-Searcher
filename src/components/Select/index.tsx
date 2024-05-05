@@ -1,3 +1,4 @@
+import React from "react";
 import { Box } from "@mui/material";
 import ReactSelect, {
   ActionMeta,
@@ -48,4 +49,4 @@ const Select = ({
   );
 };
 
-export default Select;
+export default React.memo(Select);

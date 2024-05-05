@@ -1,3 +1,22 @@
+# Intro
+
+Hi,
+My name is Divyansh Singh Thakur, I'm a Full Stack Developer with 2 years of experience in React.js, Next.js, Redux Toolkit, RTX Query, Material UI, Node.js, MongoDB, PostgreSQL, AWS Services etc.
+
+You can check the deployed version of this code here 
+[https://job-searcher-weekday.netlify.app](https://job-searcher-weekday.netlify.app/)
+
+You can also check my Portfolio website here
+[https://portfolio-divyansh.netlify.app](https://portfolio-divyansh.netlify.app/)
+
+# Documentation
+
+You can clone this repository on your local machine and open cmd with location to this folder
+RUN `npm install` to install all the dependencies
+RUN `npm start` to start the development server
+
+----------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

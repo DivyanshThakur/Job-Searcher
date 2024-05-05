@@ -21,7 +21,6 @@ export interface IOption {
 export interface IFilter {
   roles: IOption[];
   locations: IOption[];
-  remote: IOption | null;
   minExperience: IOption | null;
   minBasePay: IOption | null;
   companyName: string;

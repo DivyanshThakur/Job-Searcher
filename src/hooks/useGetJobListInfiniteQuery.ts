@@ -42,7 +42,7 @@ const useGetJobListInfiniteQuery = () => {
       const { scrollTop, clientHeight, scrollHeight } =
         document.documentElement;
 
-      if (scrollTop + clientHeight >= scrollHeight - 20) {
+      if (scrollTop + clientHeight >= scrollHeight - 20 && !isLoading) {
         fetchData();
       }
     };
@@ -52,7 +52,7 @@ const useGetJobListInfiniteQuery = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [fetchData]);
+  }, [fetchData, isLoading]);
 
   return {
     data: jobs,

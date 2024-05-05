@@ -28,7 +28,6 @@ const initialState: InitialStateType = {
     minExperience: null,
     companyName: "",
     locations: [],
-    remote: null,
     minBasePay: null,
   },
 };
@@ -54,7 +53,6 @@ const jobListSlice = createSlice({
         locations,
         minBasePay,
         minExperience,
-        remote,
         roles,
       } = action.payload;
 
@@ -64,7 +62,6 @@ const jobListSlice = createSlice({
         state.filter.minExperience = minExperience;
       if (locations !== undefined) state.filter.locations = locations;
       if (roles !== undefined) state.filter.roles = roles;
-      if (remote !== undefined) state.filter.remote = remote;
     },
     resetJobList: (state) => {
       state.jobs = [];

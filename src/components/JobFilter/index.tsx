@@ -42,6 +42,10 @@ const JobFilter = () => {
 
   const locations: IOption[] = [
     {
+      label: "Remote",
+      value: "remote",
+    },
+    {
       label: "Delhi NCR",
       value: "delhi ncr",
     },
@@ -56,17 +60,6 @@ const JobFilter = () => {
     {
       label: "Bangalore",
       value: "bangalore",
-    },
-  ];
-
-  const remote: IOption[] = [
-    {
-      label: "Remote",
-      value: "remote",
-    },
-    {
-      label: "On-Site",
-      value: "on-site",
     },
   ];
 
@@ -104,13 +97,6 @@ const JobFilter = () => {
           label="Experience"
           value={filter.minExperience}
           options={experiences}
-          onChange={handleSelectChange}
-        />
-        <Select
-          name="remote"
-          label="Remote"
-          options={remote}
-          value={filter.remote}
           onChange={handleSelectChange}
         />
         <Select

@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import { Box, Container } from "@mui/material";
 import Select from "../Select";
 import { IOption } from "../../types/common.type";
 import Input from "../Input";
-import { useState } from "react";
 import { setFilter } from "../../redux/slices/jobList.slice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
@@ -83,7 +83,14 @@ const JobFilter = () => {
 
   return (
     <Container>
-      <Box display="flex" marginTop={4} marginBottom={4} gap={1} alignItems="flex-end" flexWrap="wrap">
+      <Box
+        display="flex"
+        marginTop={4}
+        marginBottom={4}
+        gap={1}
+        alignItems="flex-end"
+        flexWrap="wrap"
+      >
         <Select
           isMulti
           name="roles"
@@ -125,4 +132,4 @@ const JobFilter = () => {
   );
 };
 
-export default JobFilter;
+export default React.memo(JobFilter);

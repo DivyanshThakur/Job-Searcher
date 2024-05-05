@@ -8,20 +8,22 @@ const Header = () => {
           Job Searcher (Weekday)
         </Typography>
         <Button
-          LinkComponent="a"
-          href="https://www.linkedin.com/in/divyansh-s-thakur"
-          target="_blank"
-          color="inherit"
-        >
-          Linkedin
-        </Button>
-        <Button
+          variant="outlined"
           LinkComponent="a"
           href="https://portfolio-divyansh.netlify.app"
           target="_blank"
           color="inherit"
         >
           My Unique Portfolio
+        </Button>
+        <Button
+          LinkComponent="a"
+          href="https://www.linkedin.com/in/divyansh-s-thakur"
+          target="_blank"
+          color="inherit"
+          style={{ margin: "0 10px" }}
+        >
+          Linkedin
         </Button>
         <Button
           LinkComponent="a"

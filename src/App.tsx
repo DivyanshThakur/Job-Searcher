@@ -1,5 +1,5 @@
-import React from "react";
 import HomePage from "./pages/Home.page";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,12 @@ function App() {
    * Add different pages to pages folder and call here
    * If multiple pages, use react router to navigate between pages
    */
-  return <HomePage />;
+  return (
+    <>
+      <Header />
+      <HomePage />
+    </>
+  );
 }
 
 export default App;

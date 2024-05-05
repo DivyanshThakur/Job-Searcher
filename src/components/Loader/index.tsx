@@ -9,33 +9,35 @@ interface LoaderProps {
   handleClose?: React.MouseEventHandler<HTMLElement>;
 }
 
-const Loader = ({
-  show = true,
-  fullScreen = false,
-  handleClose,
-}: LoaderProps) => {
-  if (!fullScreen) {
-    return show ? (
-      <Box
-        display="flex"
-        justifyContent="center"
-        marginTop={10}
-        marginBottom={10}
+const Loader = React.forwardRef(
+  (
+    { show = true, fullScreen = false, handleClose }: LoaderProps,
+    ref: React.ForwardedRef<HTMLElement>
+  ) => {
+    if (!fullScreen) {
+      return (
+        <Box
+          ref={ref}
+          display="flex"
+          justifyContent="center"
+          marginTop={10}
+          marginBottom={10}
+        >
+          {show && <CircularProgress color="primary" />}
+        </Box>
+      );
+    }
+    return (
+      <Backdrop
+        ref={ref}
+        sx={{ color: "blue", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={show}
+        onClick={handleClose}
       >
-        <CircularProgress color="primary" />
-      </Box>
-    ) : (
-      <></>
+        <CircularProgress color="inherit" />
+      </Backdrop>
     );
   }
-  return (
-    <Backdrop
-      sx={{ color: "blue", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      open={show}
-      onClick={handleClose}
-    >
-      <CircularProgress color="inherit" />
-    </Backdrop>
-  );
-};
+);
+
 export default Loader;

@@ -3,6 +3,7 @@ import JobCard from "../JobCard";
 import { IJob } from "../../types/common.type";
 import styles from "./styles.module.css";
 import useJobFilter from "../../hooks/useJobFilter";
+
 interface JobListProps {
   items: IJob[];
 }
@@ -11,7 +12,7 @@ const JobList = ({ items }: JobListProps) => {
   const filteredJobs = useJobFilter({ items });
 
   return (
-    <Grid container className={styles.jobListContainer}>
+    <Grid container>
       {filteredJobs.map((job) => (
         <Grid
           item

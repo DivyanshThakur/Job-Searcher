@@ -83,7 +83,7 @@ const JobFilter = () => {
 
   return (
     <Container>
-      <Box display="flex" gap={1} alignItems="flex-end" flexWrap="wrap">
+      <Box display="flex" marginTop={4} marginBottom={4} gap={1} alignItems="flex-end" flexWrap="wrap">
         <Select
           isMulti
           name="roles"

@@ -6,7 +6,6 @@ interface UseJobFilterProps {
   items: IJob[];
 }
 
-
 /**
  ** Optimization 3-4 to 1
  */

@@ -1,6 +1,7 @@
 import HomePage from "./pages/Home.page";
 import Header from "./components/Header";
 import "./App.css";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   /**
@@ -11,6 +12,7 @@ function App() {
     <>
       <Header />
       <HomePage />
+      <ScrollToTopButton />
     </>
   );
 }

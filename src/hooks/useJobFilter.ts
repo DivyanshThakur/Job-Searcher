@@ -7,7 +7,10 @@ interface UseJobFilterProps {
 }
 
 /**
- ** Optimization 3-4 to 1
+ ** useJobFilter is a custom Hook to return filtered jobs that will be
+ ** displayed to the user.
+ ** We have used useCallback to reduce the number of times this filter function
+ ** was called.
  */
 const useJobFilter = ({ items }: UseJobFilterProps) => {
   const { filter } = useAppSelector((state) => state.jobList);

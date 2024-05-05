@@ -48,13 +48,8 @@ const jobListSlice = createSlice({
       state.page++;
     },
     setFilter: (state, action: ISetFilter) => {
-      const {
-        companyName,
-        locations,
-        minBasePay,
-        minExperience,
-        roles,
-      } = action.payload;
+      const { companyName, locations, minBasePay, minExperience, roles } =
+        action.payload;
 
       if (companyName !== undefined) state.filter.companyName = companyName;
       if (minBasePay !== undefined) state.filter.minBasePay = minBasePay;
@@ -65,7 +60,15 @@ const jobListSlice = createSlice({
     },
     resetJobList: (state) => {
       state.jobs = [];
+      state.totalJobs = 0;
       state.page = 1;
+      state.filter = {
+        roles: [],
+        minExperience: null,
+        companyName: "",
+        locations: [],
+        minBasePay: null,
+      };
     },
   },
 });

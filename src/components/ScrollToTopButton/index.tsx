@@ -3,6 +3,9 @@ import styles from "./styles.module.css";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import Fab from "@mui/material/Fab";
 
+/**
+ * This is a custom implementation of scroll to top button with animation
+ */
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 

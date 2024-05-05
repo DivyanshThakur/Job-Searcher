@@ -32,11 +32,18 @@ const useGetJobListInfiniteQuery = () => {
     setIsLoading(false);
   }, [dispatch, isLoading, page]);
 
+  /**
+   * Calling fetchData for the very first time when page loads
+   */
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /**
+   * Calling fetchData whenever user scrolls to bottom.
+   * We are using browser APIs to get the current state of the user scroll.
+   */
   useEffect(() => {
     const handleScroll = () => {
       const { scrollTop, clientHeight, scrollHeight } =

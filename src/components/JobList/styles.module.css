@@ -1,6 +1,18 @@
-
-
 .jobCard {
     padding-left: 24px;
     padding-top: 24px;
+}
+
+.emptyListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.emptyListContainer > p {
+    margin: 20px 0px 0px;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 700;
 }

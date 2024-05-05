@@ -10,7 +10,7 @@ const Homepage = () => {
   return (
     <Container component="main">
       <JobFilter />
-      <JobList items={data} />
+      <JobList isLoading={isLoading} items={data} />
       <Loader show={isLoading} />
     </Container>
   );
